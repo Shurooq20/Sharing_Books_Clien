@@ -15,7 +15,7 @@ class BookIndexPage extends Component {
     }
 
     componentDidMount() {
-        Book.all(this.props.match.params.id).then((books) => {
+        Book.all(this.props.categoryId).then((books) => {
             this.setState({
                books: books
             })
@@ -30,7 +30,7 @@ class BookIndexPage extends Component {
              
                 { this.state.books.map((book) => {
                     return(
-                        <Link key={book.id} to={`categories/${book.category.id}/books/${book.id}`}>
+                        <Link key={book.id} to={`/categories/${book.category.id}/books/${book.id}`}>
                         <BookDetails {...book} deletebook={this.deletebook}/>
                         
                         </Link>

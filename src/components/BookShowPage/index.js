@@ -11,6 +11,7 @@ class BookShowPage extends Component {
         this.state = {
             book: {} 
         }
+        this.deleteBook = this.deleteBook.bind(this);
     }
 
     componentDidMount(){
@@ -19,19 +20,29 @@ class BookShowPage extends Component {
             // console.log(book)
             this.setState((state) => {
                 return {
-                    book
+                    book,
+                    categoryId
                 }
             })
         })
     }
 
+    deleteBook(categoryId,id) {
+        Book.delete(categoryId, id).then(() => {
+          this.setState({ book: {} });
+          this.props.history.push("/books");
+        });
+      }
+
     render() {
         const { id, title, author, rating, img2_url, link, description} = this.state.book;
+        console.log(this.state.book.id, this.state.categoryId)
         return (
             <main className='page'>
                 {
         
                     id ?
+                    <>
                     <BookDetails 
                         id={id}
                         title={title}
@@ -39,9 +50,14 @@ class BookShowPage extends Component {
                         rating={rating}
                         img2_url={img2_url}
                         link={link} 
-                        description={description}                    
+                        description={description}   
+                        /><button
+            
+                        onClick={() => this.deleteBook(this.state.categoryId, this.state.book.id)}
+                            >Delete </button>
+                            </>                 
                     
-                    /> :null
+                         :null
                 
                 }            
             </main>

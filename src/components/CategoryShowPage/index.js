@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import CategoryDetails from '../CategoryDetails';
+import BookIndexPage from '../BookIndexPage';
 
 import { Category }from '../../requests'
 
@@ -11,6 +12,7 @@ class CategoryShowPage extends Component {
         this.state = {
             category: {}
         }
+        this.deleteCategry = this.deleteCategory.bind(this);
     }
 
     componentDidMount(){
@@ -24,6 +26,13 @@ class CategoryShowPage extends Component {
         })
     }
 
+    deleteCategory(id) {
+        Category.delete(id).then(() => {
+          this.setState({ category: {} });
+          this.props.history.push("/categories");
+        });
+      }
+
     render() {
         const { id, name, img_url} = this.state.category;
         return (
@@ -31,12 +40,23 @@ class CategoryShowPage extends Component {
                 {
         
                     id ?
+                    <>
                     <CategoryDetails 
                         id={id}
                         name={name}
-                        img_url={img_url}                       
+                        img_url={img_url}   
+                        
+                        
                     
-                    /> :null
+                    /><button
+                    onClick={() => this.deleteCategory(this.state.category.id)}
+                        >Delete </button>
+                        <BookIndexPage categoryId={ id }/>
+                        </>
+                        :null
+                    
+                    
+                                   
                 
                 }            
             </main>

@@ -24,6 +24,7 @@ export const Category = {
 
     delete(id) {
         return fetch(`${BASE_URL}/categories/${id}`, {
+            method: 'Delete',
             credentials: 'include'
         }).then(res => res.json())
     },
@@ -43,7 +44,7 @@ export const Book = {
         }).then(res => res.json())
     },
     create(params, id) {
-        return fetch(`${BASE_URL}//categories/${id}/books`, {
+        return fetch(`${BASE_URL}/categories/${id}/books`, {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -51,7 +52,14 @@ export const Book = {
             },
             body: JSON.stringify(params)
         }).then(res => res.json())
-    }
+    },
+
+    delete(categoryId, id) {
+        return fetch(`${BASE_URL}/categories/${categoryId}/books/${id}`, {
+            method: 'Delete',
+            credentials: 'include'
+        }).then(res => res.json())
+    },
 
 };
 

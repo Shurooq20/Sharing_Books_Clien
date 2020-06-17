@@ -7,7 +7,6 @@ function CategoryDetails({ id, name, img_url }) {
       <br></br>
       <img src={img_url}/>
 
-      
     </div>
   )
 }
