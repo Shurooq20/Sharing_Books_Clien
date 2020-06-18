@@ -1,42 +1,43 @@
-import React, { Component } from 'react';
-import EditBookForm from '../EditBookForm';
-import { Book } from '../../requests';
+import React, { Component } from 'react'
+import EditBookForm from '../EditBookForm'
+import { Book } from '../../requests'
 
 class EditBookPage extends Component {
   constructor(props) {
-    super(props);
-    this.state= {
-      book: null
+    super(props)
+    this.state = {
+      book: null,
     }
     // this.updateBook = this.updateBook.bind(this);
   }
   // console.log(params)
   editBook(params) {
-
-    
-    Book.create(params, this.id).then((book) => {
+    Book.update(
+      this.props.match.params.categoryId,
+      this.props.match.params.id,
+      params
+    ).then((book) => {
       console.log(book)
-        this.props.history.push(`${book.id}`);
+      this.props.history.push(`${book.id}`)
     })
   }
 
-
-  componentDidMount(){
-    Book.one(this.props.match.params.categoryId, this.props.match.params.id).then(book => {
-
+  componentDidMount() {
+    Book.one(
+      this.props.match.params.categoryId,
+      this.props.match.params.id
+    ).then((book) => {
       this.setState({
-        book
+        book,
       })
-    }) 
+    })
   }
 
-
   render() {
-    return(
+    return (
       <main>
-       
         <h1> Cat New Page</h1>
-        <EditBookForm editBook={ this.editBook } book={this.state.book}/>
+        <EditBookForm editBook={this.editBook} book={this.state.book} />
       </main>
     )
   }
