@@ -1,5 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import  { Redirect } from 'react-router-dom';
 import BookDetails from '../BookDetails';
+
 
 import { Book }from '../../requests'
 
@@ -34,6 +36,12 @@ class BookShowPage extends Component {
         });
       }
 
+      editBook(categoryId, id){
+    //   return <Redirect to={`/categories/${categoryId}/books/${id}/edit`}/>
+    // console.log(categoryId, id)
+    this.props.history.push({pathname:`/categories/${categoryId}/books/${id}/edit`, state: this.state.book});
+    }
+
     render() {
         const { id, title, author, rating, img2_url, link, description} = this.state.book;
         console.log(this.state.book.id, this.state.categoryId)
@@ -42,6 +50,7 @@ class BookShowPage extends Component {
                 {
         
                     id ?
+                    
                     <>
                     <BookDetails 
                         id={id}
@@ -50,13 +59,19 @@ class BookShowPage extends Component {
                         rating={rating}
                         img2_url={img2_url}
                         link={link} 
-                        description={description}   
+                        description={description}  
+                         
+
                         /><button
             
                         onClick={() => this.deleteBook(this.state.categoryId, this.state.book.id)}
                             >Delete </button>
+                        <button
+            
+                        onClick={() => this.editBook(this.state.categoryId, this.state.book.id)}
+                            >Edit </button>
+                        
                             </>                 
-                    
                          :null
                 
                 }            

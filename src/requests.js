@@ -54,6 +54,17 @@ export const Book = {
         }).then(res => res.json())
     },
 
+    update(categoryId, id, params) {
+        return fetch(`${BASE_URL}/categories/${categoryId}/books/${id}`, {
+          method: "PATCH",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(params),
+        }).then((res) => res.json());
+      },
+    
     delete(categoryId, id) {
         return fetch(`${BASE_URL}/categories/${categoryId}/books/${id}`, {
             method: 'Delete',

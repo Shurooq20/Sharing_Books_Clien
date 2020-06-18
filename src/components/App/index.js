@@ -8,7 +8,8 @@ import SignInPage from "../SignInPage";
 import NewUserPage from "../NewUserPage";
 import NavBar from '../NavBar';
 import BookShowPage from '../BookShowPage';
-import BookIndexPage from '../BookIndexPage'
+import BookIndexPage from '../BookIndexPage';
+import EditBookPage from '../EditBookPage'
 
 class App extends Component {
     constructor(props) {
@@ -31,7 +32,9 @@ class App extends Component {
                 <Route path='/categories/new' exact component={ NewCategoryPage } />
                 <Route path='/categories/:categoryId/books/new' component={ NewBookPage }/>
                 <Route path='/books/new' exact component={ NewCategoryPage } />
+                <Route path='/categories/:categoryId/books/:id/edit' component={ EditBookPage }/>
                 <Route path='/categories/:categoryId/books/:id' component={ BookShowPage }/>
+
                 <Route path='/categories/:id/books' component={ BookIndexPage }/>
                 <Route path='/categories/:id' component={ CategoryShowPage } />
                 <Route path="/sign_in" component={SignInPage} />

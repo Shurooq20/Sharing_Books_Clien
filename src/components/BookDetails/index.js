@@ -9,7 +9,7 @@ function BookDetails({ id, title, author, rating, img2_url, link, description, c
       <img src={img2_url}/>
       <a href={link}>pdf_Book</a>
       <h1>{ description }</h1>
-      <hi>{ rating }</hi>
+      <h1>{ rating }</h1>
     </div>
   )
 }

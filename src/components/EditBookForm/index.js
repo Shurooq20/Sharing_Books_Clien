@@ -1,12 +1,12 @@
 import React from 'react';
 
-export default function BookForm({ createBook }) {
-
+export default function EditBookForm({ EditBook, book }) {
+  console.log(book)
   function handleSubmit(event) {
     event.preventDefault();
     const { currentTarget } = event;
     const formData = new FormData(currentTarget);
-    createBook({
+    Book({
       title: formData.get('title'),
       author: formData.get('author'),
       img2_url: formData.get('img2_url'),
@@ -45,7 +45,7 @@ export default function BookForm({ createBook }) {
       </div>
     
       <div>
-        <input type='submit' value='Post your Book'/>
+        <input type='submit' value='Save'/>
       </div>
     </form>
   )
