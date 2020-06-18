@@ -36,8 +36,8 @@ export const Book = {
       credentials: 'include',
     }).then((res) => res.json())
   },
-  one(categoryId, id) {
-    return fetch(`${BASE_URL}/categories/${categoryId}/books/${id}`, {
+  one(id) {
+    return fetch(`${BASE_URL}/books/${id}`, {
       credentials: 'include',
     }).then((res) => res.json())
   },
@@ -52,8 +52,8 @@ export const Book = {
     }).then((res) => res.json())
   },
 
-  update(categoryId, bookId, params) {
-    return fetch(`${BASE_URL}/categories/${categoryId}/books/${bookId}`, {
+  update(id, params) {
+    return fetch(`${BASE_URL}/books/${id}`, {
       method: 'PATCH',
       credentials: 'include',
       headers: {
@@ -63,8 +63,8 @@ export const Book = {
     }).then((res) => res.json())
   },
 
-  delete(categoryId, id) {
-    return fetch(`${BASE_URL}/categories/${categoryId}/books/${id}`, {
+  delete(id) {
+    return fetch(`${BASE_URL}/books/${id}`, {
       method: 'Delete',
       credentials: 'include',
     }).then((res) => res.json())

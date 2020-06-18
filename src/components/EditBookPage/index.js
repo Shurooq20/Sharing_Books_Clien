@@ -8,12 +8,12 @@ class EditBookPage extends Component {
     this.state = {
       book: null,
     }
-    // this.updateBook = this.updateBook.bind(this);
+    this.editBook = this.editBook.bind(this);
   }
   // console.log(params)
   editBook(params) {
     Book.update(
-      this.props.match.params.categoryId,
+      // this.props.match.params.categoryId,
       this.props.match.params.id,
       params
     ).then((book) => {
@@ -22,9 +22,9 @@ class EditBookPage extends Component {
     })
   }
 
-  componentDidMount() {
+  componentWillMount() {
     Book.one(
-      this.props.match.params.categoryId,
+      // this.props.match.params.categoryId,
       this.props.match.params.id
     ).then((book) => {
       this.setState({
@@ -36,7 +36,7 @@ class EditBookPage extends Component {
   render() {
     return (
       <main>
-        <h1> Cat New Page</h1>
+        <h1> Edit your Book Page </h1>
         <EditBookForm editBook={this.editBook} book={this.state.book} />
       </main>
     )

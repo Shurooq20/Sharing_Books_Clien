@@ -17,29 +17,28 @@ class BookShowPage extends Component {
     }
 
     componentDidMount(){
-        const { categoryId, id } = this.props.match.params
-        Book.one(categoryId, id ).then((book) => {
+        const { id } = this.props.match.params
+        Book.one( id ).then((book) => {
             // console.log(book)
             this.setState((state) => {
                 return {
                     book,
-                    categoryId
                 }
             })
         })
     }
 
-    deleteBook(categoryId,id) {
-        Book.delete(categoryId, id).then(() => {
+    deleteBook(id) {
+        Book.delete(id).then(() => {
           this.setState({ book: {} });
           this.props.history.push("/books");
         });
-      }
+    }
 
-      editBook(categoryId, id){
+    editBook(categoryId, id){
     //   return <Redirect to={`/categories/${categoryId}/books/${id}/edit`}/>
     // console.log(categoryId, id)
-    this.props.history.push({pathname:`/categories/${categoryId}/books/${id}/edit`, state: this.state.book});
+        this.props.history.push({pathname:`/categories/${categoryId}/books/${id}/edit`, state: this.state.book});
     }
 
     render() {
@@ -64,7 +63,7 @@ class BookShowPage extends Component {
 
                         /><button
             
-                        onClick={() => this.deleteBook(this.state.categoryId, this.state.book.id)}
+                        onClick={() => this.deleteBook(this.state.book.id)}
                             >Delete </button>
                         <button
             
