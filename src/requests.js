@@ -28,7 +28,7 @@ export const Category = {
       credentials: 'include',
     }).then((res) => res.json())
   },
-}
+};
 
 export const Book = {
   all(id) {
@@ -69,7 +69,34 @@ export const Book = {
       credentials: 'include',
     }).then((res) => res.json())
   },
-}
+};
+
+export const Review = {
+  all(id) {
+    return fetch(`${BASE_URL}/books/${id}/reviews`, {
+      credentials: 'include',
+    }).then((res) => res.json())
+  },
+
+  create(params, id) {
+    return fetch(`${BASE_URL}/books/${id}/reviews`, {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(params),
+    }).then((res) => res.json())
+  },
+
+  delete(id) {
+    return fetch(`${BASE_URL}/reviews/${id}`, {
+      method: 'Delete',
+      credentials: 'include',
+    }).then((res) => res.json())
+  },
+};
+
 
 export const Session = {
   create(params) {
@@ -84,7 +111,12 @@ export const Session = {
       return res.json()
     })
   },
-}
+  delete() {
+    return fetch(`${BASE_URL}/session`, {
+      method: "DELETE",
+    }).then((res) => res.json());
+  },
+};
 
 export const User = {
   current() {
@@ -104,11 +136,12 @@ export const User = {
       body: JSON.stringify(params),
     }).then((res) => res.json())
   },
-}
+};
 
 export default {
   Category,
   Book,
   Session,
   User,
+  Review,
 }

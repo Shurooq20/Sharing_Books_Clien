@@ -20,7 +20,7 @@ class NewBookPage extends Component {
   render() {
     return(
       <main>
-        <h1> Category New Page</h1>
+        <h1> Post your Book</h1>
         <BookForm createBook={ this.createBook }/>
       </main>
     )
