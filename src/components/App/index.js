@@ -66,7 +66,7 @@ class App extends Component {
                 path='/categories/:categoryId/books/new'/>
 
             <Route path='/books/new' exact component={NewBookPage} />
-            <Route path='/books/:id/reviews/new' exact component={NewReviewPage} />
+            {/* <Route path='/books/:id/reviews/new' exact component={NewReviewPage} /> */}
             <Route path='/categories/:categoryId/books/:id/edit'component={EditBookPage}/>
             <Route path='/categories/:categoryId/books/:id'component={BookShowPage}/>
             <Route path='/books/:id/reviews' component={ReviewIndexPage} />

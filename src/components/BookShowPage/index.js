@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 // import { Redirect } from 'react-router-dom';
 import BookDetails from '../BookDetails';
 import ReviewIndexPage from '../ReviewIndexPage'
-import ReviewForm from '../ReviewForm'
+// import ReviewForm from '../ReviewForm'
+import { Review } from '../../requests';
 
 
 import { Book } from '../../requests'
@@ -16,6 +17,8 @@ class BookShowPage extends Component {
             book: {}
         }
         this.deleteBook = this.deleteBook.bind(this);
+        // this.createReview = this.createReview.bind(this);
+    
     }
 
     componentDidMount() {
@@ -43,6 +46,18 @@ class BookShowPage extends Component {
         this.props.history.push({ pathname: `/categories/${categoryId}/books/${id}/edit`, state: this.state.book });
     }
 
+    
+  createReview(params) {
+
+    
+    Review.create(params, this.props.match.params.id).then((review) => {
+      console.log(review)
+        // this.props.history.push(`${review.book_id}`);
+        console.log(this.state.book)
+        // this.setState({ book: review.book});
+    })
+  }
+
     render() {
         const { id, title, author, rating, img2_url, link, description } = this.state.book;
         console.log(this.state.book.id, this.state.categoryId)
@@ -65,7 +80,7 @@ class BookShowPage extends Component {
                             <button onClick={() => this.deleteBook(this.state.book.id)}>Delete</button>
                             <button onClick={() => this.editBook(this.state.categoryId, this.state.book.id)}>Edit </button>
 
-                            <ReviewForm/>
+                            {/* <ReviewForm createReview={ this.createReview } /> */}
                             <ReviewIndexPage id={id} />
                             
                         </>

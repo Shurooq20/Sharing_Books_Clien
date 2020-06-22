@@ -13,7 +13,7 @@ export default function ReviewForm({ createReview }) {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor='body'>Waht is your review? </label>
+        <label htmlFor='body'>What is your review? </label>
         <input type='text' name='body' />
       </div>
 
