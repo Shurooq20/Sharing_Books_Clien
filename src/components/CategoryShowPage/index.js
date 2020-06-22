@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import CategoryDetails from '../CategoryDetails';
 import BookIndexPage from '../BookIndexPage';
+import { NavLink } from 'react-router-dom';
 
 import { Category }from '../../requests'
 
@@ -33,6 +34,11 @@ class CategoryShowPage extends Component {
         });
       }
 
+    renderCreateBook(id) {
+        this.props.history.push(`/categories/${id}/books/new`);
+    }
+
+
     render() {
         const { id, name, img_url} = this.state.category;
         return (
@@ -51,6 +57,9 @@ class CategoryShowPage extends Component {
                     /><button
                     onClick={() => this.deleteCategory(this.state.category.id)}
                         >Delete </button>
+                        <p></p>
+                    <button onClick={() => this.renderCreateBook(this.state.category.id)}>Add your Book</button>
+
                         <BookIndexPage categoryId={ id }/>
                         </>
                         :null
@@ -61,7 +70,6 @@ class CategoryShowPage extends Component {
                 }            
             </main>
         )
-
 
     }
 
