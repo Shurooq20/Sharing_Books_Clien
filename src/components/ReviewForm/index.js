@@ -13,12 +13,12 @@ export default function ReviewForm({ createReview }) {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor='body'>Add Comment</label>
+        <label htmlFor='body'>Waht is your review? </label>
         <input type='text' name='body' />
       </div>
 
       <div>
-        <input type='submit' value='Comment' />
+        <input type='submit' value='submit' />
       </div>
     </form>
   )

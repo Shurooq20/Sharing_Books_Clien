@@ -11,6 +11,7 @@ class ReviewIndexPage extends Component {
         this.state = {
             reviews: []
         }
+        this.deleteReview = this.deleteReview.bind(this);
     }
 
     componentDidMount() {
@@ -21,6 +22,12 @@ class ReviewIndexPage extends Component {
         })
     }
 
+    deleteReview(id) {
+        Review.delete(id).then(() => {
+            this.setState({ review: {} });
+            this.props.history.push("/reviews");
+        });
+    }
     
 
     render() {
@@ -31,6 +38,8 @@ class ReviewIndexPage extends Component {
                     return(
                         <div key={review.id} to={`/books/${review.book_id}/reviews/${review.id}`}>
                             <ReviewDetails {...review} deletereview={this.deletereview}/>
+                            <button onClick={() => this.deleteReview(this.state.review.id)}>Delete</button>
+
                         </div>
                     )
                 })}

@@ -11,7 +11,7 @@ class NewReviewPage extends Component {
   createReview(params) {
 
     
-    Review.create(params, this.props.match.params.id).then((review) => {
+    Review.create(params, this.props.match.params.bookId).then((review) => {
       console.log(review)
         this.props.history.push(`${review.id}`);
     })

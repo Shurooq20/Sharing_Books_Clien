@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { User, Session } from '../../requests';
 import CategoryIndexPage from '../CategoryIndexPage';
 import CategoryShowPage from '../CategoryShowPage';
@@ -7,6 +7,7 @@ import NewCategoryPage from '../NewCategoryPage';
 import NewBookPage from '../NewBookPage';
 import NewReviewPage from '../NewReviewPage';
 import SignInPage from '../SignInPage';
+import AuthRoute from "../AuthRoute";
 import NewUserPage from '../NewUserPage';
 import NavBar from '../NavBar';
 import BookShowPage from '../BookShowPage';
@@ -57,7 +58,13 @@ class App extends Component {
             <Route path='/' exact component={WelcomePage} />
             <Route path='/categories' exact component={CategoryIndexPage} />
             <Route path='/categories/new' exact component={NewCategoryPage} />
-            <Route path='/categories/:categoryId/books/new'component={NewBookPage}/>
+            {/* <Route path='/categories/:categoryId/books/new'component={NewBookPage}/> */}
+
+            <AuthRoute
+                isAuthenticated={this.state.currentUser}
+                component={NewBookPage}
+                path='/categories/:categoryId/books/new'/>
+
             <Route path='/books/new' exact component={NewBookPage} />
             <Route path='/books/:id/reviews/new' exact component={NewReviewPage} />
             <Route path='/categories/:categoryId/books/:id/edit'component={EditBookPage}/>
