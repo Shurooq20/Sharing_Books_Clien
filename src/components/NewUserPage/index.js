@@ -40,33 +40,34 @@ class NewUserPage extends Component {
   render() {
     return(
       <main>
-        <h1>New User Page</h1>
+        {/* <h1>New User Page</h1>
         { Object.keys(this.state.errors).length > 0 ? (
           <div>Failed to create User</div>
         ) : null
-        }
-        <form onSubmit={this.handleSubmit}>
-          <div>
+        } */}
+        <form className='user_form' onSubmit={this.handleSubmit}>
+              <h1 className='user_header'>New User Page</h1>
+              { Object.keys(this.state.errors).length > 0 ? (
+                <div>Failed to create User</div>
+              ) : null
+              }
+         
             <label htmlFor='firstName'>First Name</label>
             <input type='text' name='firstName'/>
-          </div>
-          <div>
+         
             <label htmlFor='lastName'>Last Name</label>
             <input type='text' name='lastName'/>
-          </div>
-          <div>
+         
             <label htmlFor='email'>Email</label>
             <input type='email' name='email'/>
-          </div>
-          <div>
+         
             <label htmlFor='password'>Password</label>
             <input type='password' name='password'/>
-          </div>
-          <div>
+         
             <label htmlFor='passwordConfirmation'>Confirm Password</label>
             <input type='password' name='passwordConfirmation'/>
-          </div>
-          <input type='submit' value='Create User'/>
+        
+          <input className='user_button' type='submit' value='Create User'/>
         </form>
       </main>
        )

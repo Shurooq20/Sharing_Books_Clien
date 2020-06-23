@@ -47,14 +47,15 @@ class CategoryShowPage extends Component {
         
                     id ?
                     <>
+                    <div className='category_show'>
                     <CategoryDetails 
                         id={id}
                         name={name}
                         img_url={img_url}   
-                        
-                        
-                    
-                    /><button
+        
+                    />
+                    </div>
+                    <button
                     onClick={() => this.deleteCategory(this.state.category.id)}
                         >Delete </button>
                         <p></p>

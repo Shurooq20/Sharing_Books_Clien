@@ -36,14 +36,17 @@ class CategoryIndexPage extends Component {
 
     render() {
         return(
-            <main className='page'>
+            <main className='categories_page'>
              
                 { this.state.categories.map((category) => {
                     return(
-                        <Link key={category.id} to={`/categories/${category.id}`}>
+                        <div key={category.id} className='category_card'>
+                            
+                        <Link  to={`/categories/${category.id}`}>
                         <CategoryDetails {...category} deleteCategory={this.deleteCategory}/>
                         
                         </Link>
+                        </div>
                     )
                 })}
 

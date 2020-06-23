@@ -3,10 +3,12 @@
 :root{
 --main-color: #7F7CAF;
 --text-color-nav:black;
+--main-background: #9FB4C7;
 }
 
 body{
 font-size: 1.5em;
+background: var(--main-background);
 }
 
 img{
@@ -27,6 +29,7 @@ a{
     display: flex;
     align-items: center;
     background: var(--main-color);
+    padding: 0.2em;
   
 }
 
@@ -35,7 +38,53 @@ a{
 
 }
 
-.back_img{
-    
+.welcome_img{
+    width: 100%;
+    height: 95vh;
+    background-size: 100%;
+    background-image: url('../Iamges/Back_book.jpg');
 }
 
+.categories_page{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.category_card{
+    max-width: 400px;
+    margin: 0.5em;
+}
+
+.user_form{
+    display: grid;
+    grid-gap:0.5em;
+    grid-template-columns: 200px auto;
+    margin: 5em auto;
+  
+    padding-right: 24px;
+    width: 600px;
+}
+
+.user_button{
+    grid-column: 2/3;
+}
+
+.user_header{
+    grid-column: 1/3;
+    text-align: center;
+    font-size: 1.2em;
+    padding: 0.5em;
+}
+
+.category_header{
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.category_show{
+    
+}

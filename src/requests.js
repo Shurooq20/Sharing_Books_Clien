@@ -114,6 +114,7 @@ export const Session = {
   delete() {
     return fetch(`${BASE_URL}/session`, {
       method: "DELETE",
+      credentials: 'include',
     }).then((res) => res.json());
   },
 };
