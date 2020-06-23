@@ -50,6 +50,7 @@ class App extends Component {
           <NavBar
             currentUser={this.state.currentUser}
             signOut={this.destroySession}
+            signIn={this.getUser}
           />
 
           <Switch>
@@ -77,7 +78,12 @@ class App extends Component {
             <Route path='/books/:id/reviews' component={ReviewIndexPage} />
             <Route path='/categories/:id/books' component={BookIndexPage} />
             <Route path='/categories/:id' component={CategoryShowPage} />
-            <Route path='/sign_in' component={SignInPage} />
+            <Route
+              path='/sign_in'
+              render={(routeProps) => (
+                <SignInPage {...routeProps} signIn={this.getUser} />
+              )}
+            />
             <Route path='/users/new' component={NewUserPage} />
           </Switch>
         </main>
