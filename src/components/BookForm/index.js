@@ -16,36 +16,37 @@ export default function BookForm({ createBook }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <form className='book_form' onSubmit={handleSubmit}>
+       {/* <h1 className='book_header'> Post your Book</h1> */}
+     
         <label htmlFor='title'>Name Book</label>
         <input type='text' name='title' />
-      </div>
-      <div>
+     
+    
         <label htmlFor='author'>Author</label>
         <input type='text' name='author' />
-      </div>
-      <div>
+    
+     
         <label htmlFor='img_url'>img_url</label>
-        <textarea type='img_url' name='img2_url' />
-      </div>
-      <div>
+        <input  type='img_url' name='img2_url'/>
+     
+    
         <label htmlFor='link'>Link</label>
         <input type='text' name='link' />
-      </div>
-      <div>
+    
+      
         <label htmlFor='description'>Description</label>
-        <input type='text' name='description' />
-      </div>
+        <textarea type='text' name='description'/>
+     
 
-      <div>
+      
         <label htmlFor='rating'>Rating</label>
         <input type='number' min='1' max='5' name='rating' />
-      </div>
+     
 
-      <div>
-        <input type='submit' value='Post your Book' />
-      </div>
+    
+        <input  className='book_button' type='submit' value='Post your Book' />
+    
     </form>
   )
 }

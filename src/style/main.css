@@ -86,5 +86,48 @@ a{
 }
 
 .category_show{
-    
+
+}
+
+
+.signin_form{
+    display: grid;
+    grid-gap:0.5em;
+    grid-template-columns: 200px auto;
+    margin: 5em auto;
+  
+    padding-right: 24px;
+    width: 600px;
+}
+
+.signin_header{
+    grid-column: 1/3;
+    text-align: center;
+    font-size: 1.2em;
+    padding: 0.5em;
+}
+
+.signin_button{
+    grid-column: 2/3;
+}
+
+.book_form{
+    display: grid;
+    grid-gap:0.5em;
+    grid-template-columns: 200px auto;
+    margin: 5em auto;
+  
+    padding-right: 24px;
+    width: 600px;
+}
+
+.book_button{
+    grid-column: 2/3;
+}
+
+.book_header{
+    grid-column: 1/3;
+    text-align: center;
+    font-size: 1.2em;
+    padding: 0.5em;
 }

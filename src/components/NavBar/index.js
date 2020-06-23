@@ -14,9 +14,11 @@ function NavBar(props) {
         <img src={Logo} className='logo'></img>{' '}
       </div>
       <nav>
+        <NavLink to='/'>Home</NavLink>
+        &nbsp; &nbsp;
         <NavLink to='/categories'>Categories</NavLink>
         &nbsp; &nbsp;
-        <NavLink to='/categories/new'>New Category</NavLink>
+        {/* <NavLink to='/categories/new'>New Category</NavLink> */}
         &nbsp; &nbsp;
         <NavLink to='/users/new'>Create User</NavLink>
         &nbsp; &nbsp; &nbsp; &nbsp;

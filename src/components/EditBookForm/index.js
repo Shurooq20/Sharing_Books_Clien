@@ -18,36 +18,36 @@ export default function EditBookForm(props) {
 
   if(props.book) {
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <form className='book_form' onSubmit={handleSubmit}>
+     
         <label htmlFor='title'>Name Book</label>
         <input type='text' name='title' defaultValue={props.book.title}/>
-      </div>
-      <div>
+     
+    
         <label htmlFor='author'>Author</label>
         <input type='text' name='author' defaultValue={props.book.author} />
-      </div>
-      <div>
+    
+  
         <label htmlFor='img_url'>img_url</label>
         <textarea type='img_url' name='img2_url' defaultValue={props.book.img2_url} />
-      </div>
-      <div>
+    
+     
         <label htmlFor='link'>Link</label>
         <input type='text' name='link' defaultValue={props.book.link} />
-      </div>
-      <div>
+   
+     
         <label htmlFor='description'>Description</label>
         <input type='text' name='description' defaultValue={props.book.description} />
-      </div>
+    
 
-      <div>
+     
         <label htmlFor='rating'>Rating</label>
         <input type='number' min='1' max='5' name='rating' defaultValue={props.book.rating} />
-      </div>
+     
 
-      <div>
-        <input type='submit' value='Save' />
-      </div>
+   
+        <input className='book_button' type='submit' value='Save' />
+     
     </form>
   )
 }
