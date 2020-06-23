@@ -1,58 +1,56 @@
-import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { User, Session } from '../../requests';
-import CategoryIndexPage from '../CategoryIndexPage';
-import CategoryShowPage from '../CategoryShowPage';
-import NewCategoryPage from '../NewCategoryPage';
-import NewBookPage from '../NewBookPage';
-import NewReviewPage from '../NewReviewPage';
-import SignInPage from '../SignInPage';
-import AuthRoute from "../AuthRoute";
-import NewUserPage from '../NewUserPage';
-import NavBar from '../NavBar';
-import BookShowPage from '../BookShowPage';
-import BookIndexPage from '../BookIndexPage';
-import EditBookPage from '../EditBookPage';
-import ReviewIndexPage from '../ReviewIndexPage';
-import { WelcomePage } from '../WelcomePage';
-
+import React, { Component } from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { User, Session } from '../../requests'
+import CategoryIndexPage from '../CategoryIndexPage'
+import CategoryShowPage from '../CategoryShowPage'
+import NewCategoryPage from '../NewCategoryPage'
+import NewBookPage from '../NewBookPage'
+import NewReviewPage from '../NewReviewPage'
+import SignInPage from '../SignInPage'
+import AuthRoute from '../AuthRoute'
+import NewUserPage from '../NewUserPage'
+import NavBar from '../NavBar'
+import BookShowPage from '../BookShowPage'
+import BookIndexPage from '../BookIndexPage'
+import EditBookPage from '../EditBookPage'
+import ReviewIndexPage from '../ReviewIndexPage'
+import { WelcomePage } from '../WelcomePage'
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       currentUser: null,
-    };
+    }
   }
 
   componentDidMount() {
-    
-    this.getUser();
+    this.getUser()
   }
 
   destroySession = () => {
     Session.delete().then(() => {
-      this.setState({ currentUser: null });
-    });
-  };
+      this.setState({ currentUser: null })
+    })
+  }
 
   getUser() {
     User.current().then((data) => {
-      console.log(data);
-      this.setState((state) => {
-        return {
-          currentUser: data,
-        };
-      });
-    });
+      console.log(data)
+      this.setState({
+        currentUser: data,
+      })
+    })
   }
-
 
   render() {
     return (
       <BrowserRouter>
         <main>
-          <NavBar currentUser={this.state.currentUser} signOut={this.destroySession} />
+          <NavBar
+            currentUser={this.state.currentUser}
+            signOut={this.destroySession}
+          />
 
           <Switch>
             <Route path='/' exact component={WelcomePage} />
@@ -61,14 +59,21 @@ class App extends Component {
             {/* <Route path='/categories/:categoryId/books/new'component={NewBookPage}/> */}
 
             <AuthRoute
-                isAuthenticated={this.state.currentUser}
-                component={NewBookPage}
-                path='/categories/:categoryId/books/new'/>
+              isAuthenticated={this.state.currentUser}
+              component={NewBookPage}
+              path='/categories/:categoryId/books/new'
+            />
 
             <Route path='/books/new' exact component={NewBookPage} />
             {/* <Route path='/books/:id/reviews/new' exact component={NewReviewPage} /> */}
-            <Route path='/categories/:categoryId/books/:id/edit'component={EditBookPage}/>
-            <Route path='/categories/:categoryId/books/:id'component={BookShowPage}/>
+            <Route
+              path='/categories/:categoryId/books/:id/edit'
+              component={EditBookPage}
+            />
+            <Route
+              path='/categories/:categoryId/books/:id'
+              component={BookShowPage}
+            />
             <Route path='/books/:id/reviews' component={ReviewIndexPage} />
             <Route path='/categories/:id/books' component={BookIndexPage} />
             <Route path='/categories/:id' component={CategoryShowPage} />
