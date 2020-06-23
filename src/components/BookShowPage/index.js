@@ -47,16 +47,16 @@ class BookShowPage extends Component {
     }
 
     
-  createReview(params) {
+//   createReview(params) {
 
     
-    Review.create(params, this.props.match.params.id).then((review) => {
-      console.log(review)
-        // this.props.history.push(`${review.book_id}`);
-        console.log(this.state.book)
-        // this.setState({ book: review.book});
-    })
-  }
+//     Review.create(params, this.props.match.params.id).then((review) => {
+//       console.log(review)
+//         this.props.history.push(`${review.book_id}`);
+//         console.log(this.state.book)
+//         this.setState({ book: review.book});
+//     })
+//   }
 
     render() {
         const { id, title, author, rating, img2_url, link, description } = this.state.book;

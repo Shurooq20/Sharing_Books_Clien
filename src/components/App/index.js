@@ -72,9 +72,10 @@ class App extends Component {
               path='/categories/:categoryId/books/:id/edit'
               component={EditBookPage}
             />
-            <Route
-              path='/categories/:categoryId/books/:id'
-              component={BookShowPage}
+            <AuthRoute
+            isAuthenticated={this.state.currentUser}
+            component={BookShowPage}
+            path='/categories/:categoryId/books/:id'
             />
             <Route path='/books/:id/reviews' component={ReviewIndexPage} />
             <Route path='/categories/:id/books' component={BookIndexPage} />
