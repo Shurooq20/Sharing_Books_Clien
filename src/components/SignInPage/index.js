@@ -26,9 +26,9 @@ class SignInPage extends Component {
         })
       } else {
         this.props.history.push('/')
-      }
-      if (typeof this.props.signIn === 'function') {
-        this.props.signIn()
+        if (typeof this.props.signIn === 'function') {
+          this.props.signIn()
+        }
       }
     })
   }

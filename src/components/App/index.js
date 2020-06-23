@@ -22,6 +22,7 @@ class App extends Component {
     this.state = {
       currentUser: null,
     }
+    this.getUser = this.getUser.bind(this)
   }
 
   componentDidMount() {
@@ -50,7 +51,7 @@ class App extends Component {
           <NavBar
             currentUser={this.state.currentUser}
             signOut={this.destroySession}
-            signIn={this.getUser}
+           
           />
 
           <Switch>

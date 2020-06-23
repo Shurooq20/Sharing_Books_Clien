@@ -3,9 +3,9 @@ import { NavLink } from 'react-router-dom'
 import Logo from '../../Iamges/logo_books_1.png'
 
 function NavBar(props) {
-  const { currentUser, signOut, signIn } = props
+  const { currentUser, signOut} = props
 
-  console.log(signOut, 'signout')
+  
 
   return (
     <div className='nav_bar'>
