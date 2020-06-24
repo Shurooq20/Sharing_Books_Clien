@@ -17,7 +17,6 @@ class BookShowPage extends Component {
             book: {}
         }
         this.deleteBook = this.deleteBook.bind(this);
-        // this.createReview = this.createReview.bind(this);
     
     }
 
@@ -41,25 +40,15 @@ class BookShowPage extends Component {
     }
 
     editBook(categoryId, id) {
-        //   return <Redirect to={`/categories/${categoryId}/books/${id}/edit`}/>
-        // console.log(categoryId, id)
+        
         this.props.history.push({ pathname: `/categories/${categoryId}/books/${id}/edit`, state: this.state.book });
     }
 
     
-//   createReview(params) {
 
-    
-//     Review.create(params, this.props.match.params.id).then((review) => {
-//       console.log(review)
-//         this.props.history.push(`${review.book_id}`);
-//         console.log(this.state.book)
-//         this.setState({ book: review.book});
-//     })
-//   }
 
     render() {
-        const { id, title, author, rating, img2_url, link, description } = this.state.book;
+        const { id, title, author, rating, img2_url, link, description, created_at, owner } = this.state.book;
         console.log(this.state.book.id, this.state.categoryId)
         return (
             <div className="show">
@@ -76,11 +65,12 @@ class BookShowPage extends Component {
                                 img2_url={img2_url}
                                 link={link}
                                 description={description}
+                                created_at={created_at}
+                                owner={owner}
                             />
                             <button onClick={() => this.deleteBook(this.state.book.id)}>Delete</button>
                             <button onClick={() => this.editBook(this.state.categoryId, this.state.book.id)}>Edit </button>
 
-                            {/* <ReviewForm createReview={ this.createReview } /> */}
                             <ReviewIndexPage id={id} />
                             
                         </>

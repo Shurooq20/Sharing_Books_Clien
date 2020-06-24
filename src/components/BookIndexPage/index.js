@@ -19,12 +19,13 @@ class BookIndexPage extends Component {
             this.setState({
                books: books
             })
-        })
+        }) 
     }
 
     
 
     render() {
+        console.log('books', this.state.books)
         return(
             <main className='page'>
              
