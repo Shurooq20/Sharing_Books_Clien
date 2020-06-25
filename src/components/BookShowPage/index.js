@@ -1,89 +1,75 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react'
 // import { Redirect } from 'react-router-dom';
-import BookDetails from '../BookDetails';
+import BookDetails from '../BookDetails'
 import ReviewIndexPage from '../ReviewIndexPage'
+import { Redirect } from 'react-router-dom'
 // import ReviewForm from '../ReviewForm'
-import { Review } from '../../requests';
-
-
+import { Review } from '../../requests'
 import { Book } from '../../requests'
 
+function BookShowPage(props) {
+  const [book, setBook] = useState({})
 
-class BookShowPage extends Component {
+  const { id, categoryId } = props.match.params
+  const currentUser = props.currentUser
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            book: {}
-        }
-        this.deleteBook = this.deleteBook.bind(this);
-    
-    }
+  useEffect(() => {
+    Book.one(id).then((book) => {
+      setBook(book)
+    })
+  }, [])
 
-    componentDidMount() {
-        const { id } = this.props.match.params
-        Book.one(id).then((book) => {
-            // console.log(book)
-            this.setState((state) => {
-                return {
-                    book,
-                }
-            })
-        })
-    }
+  function deleteBook(id) {
+    Book.delete(id).then(() => {
+      setBook({})
+      props.history.push('/books')
+    })
+  }
 
-    deleteBook(id) {
-        Book.delete(id).then(() => {
-            this.setState({ book: {} });
-            this.props.history.push("/books");
-        });
-    }
+  function editBook(categoryId, id) {
+    props.history.push({
+      pathname: `/categories/${categoryId}/books/${id}/edit`,
+      categoryId,
+    })
+  }
 
-    editBook(categoryId, id) {
-        
-        this.props.history.push({ pathname: `/categories/${categoryId}/books/${id}/edit`, state: this.state.book });
-    }
+  const {
+    title,
+    author,
+    rating,
+    img2_url,
+    link,
+    description,
+    created_at,
+    owner,
+  } = book
 
-    
+  if (currentUser) {
+    return (
+      <div className='show'>
+        {id ? (
+          <>
+            <BookDetails
+              id={id}
+              title={title}
+              author={author}
+              rating={rating}
+              img2_url={img2_url}
+              link={link}
+              description={description}
+              created_at={created_at}
+              owner={owner}
+            />
+            <button onClick={() => deleteBook(id)}>Delete</button>
+            <button onClick={() => editBook(categoryId, book.id)}>Edit </button>
 
-
-    render() {
-        const { id, title, author, rating, img2_url, link, description, created_at, owner } = this.state.book;
-        console.log(this.state.book.id, this.state.categoryId)
-        return (
-            <div className="show">
-                {
-
-                    id ?
-
-                        <>
-                            <BookDetails
-                                id={id}
-                                title={title}
-                                author={author}
-                                rating={rating}
-                                img2_url={img2_url}
-                                link={link}
-                                description={description}
-                                created_at={created_at}
-                                owner={owner}
-                            />
-                            <button onClick={() => this.deleteBook(this.state.book.id)}>Delete</button>
-                            <button onClick={() => this.editBook(this.state.categoryId, this.state.book.id)}>Edit </button>
-
-                            <ReviewIndexPage id={id} />
-                            
-                        </>
-                        : null
-
-                }
-            </div>
-        )
-
-
-    }
-
-
+            <ReviewIndexPage id={id} />
+          </>
+        ) : null}
+      </div>
+    )
+  } else {
+    return <Redirect to='/sign_in' />
+  }
 }
 export default BookShowPage
-

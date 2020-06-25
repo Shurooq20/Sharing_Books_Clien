@@ -44,6 +44,8 @@ class App extends Component {
     })
   }
 
+
+
   render() {
     return (
       <BrowserRouter>
@@ -51,7 +53,6 @@ class App extends Component {
           <NavBar
             currentUser={this.state.currentUser}
             signOut={this.destroySession}
-           
           />
 
           <Switch>
@@ -72,11 +73,21 @@ class App extends Component {
               path='/categories/:categoryId/books/:id/edit'
               component={EditBookPage}
             />
-            <AuthRoute
-            isAuthenticated={this.state.currentUser}
-            component={BookShowPage}
-            path='/categories/:categoryId/books/:id'
+            {/* <AuthRoute
+              isAuthenticated={this.state.currentUser}
+              component={BookShowPage}
+              path='/categories/:categoryId/books/:id'
+            /> */}
+            <Route
+              path='/categories/:categoryId/books/:id'
+              render={(routeProps) => (
+                <BookShowPage
+                  {...routeProps}
+                  currentUser={this.getUser}
+                />
+              )}
             />
+
             <Route path='/books/:id/reviews' component={ReviewIndexPage} />
             <Route path='/categories/:id/books' component={BookIndexPage} />
             <Route path='/categories/:id' component={CategoryShowPage} />
