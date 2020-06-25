@@ -17,10 +17,13 @@ function BookShowPage(props) {
   useEffect(() => {
     Book.one(id).then((book) => {
       setBook(book)
+    }).then(()=>{ 
+        setLoading(true)
+
     })
+
     console.log(book)
-    setLoading(true)
-  }, [])
+  }, [id])
 
   function deleteBook(id) {
     Book.delete(id).then(() => {
@@ -44,8 +47,7 @@ function BookShowPage(props) {
     link,
     description,
     created_at,
-    first_name,
-    last_name,
+    owner,
   } = book
 
   console.log(book.first_name)
@@ -66,8 +68,8 @@ function BookShowPage(props) {
                 link={link}
                 description={description}
                 created_at={created_at}
-                first_name={first_name}
-                last_name={last_name}
+                first_name={owner.first_name}
+                last_name={owner.last_name}
               />
               <button onClick={() => deleteBook(id)}>Delete</button>
               <button onClick={() => editBook(categoryId, book.id)}>
@@ -82,6 +84,6 @@ function BookShowPage(props) {
     } else {
       return <Redirect to='/sign_in' />
     }
-  }
+  } return null
 }
 export default BookShowPage
