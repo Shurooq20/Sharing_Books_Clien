@@ -9,7 +9,18 @@
 body{
 font-size: 1.5em;
 background: var(--main-background);
+padding: o.25em 0.5em;
+line-height: 1.1em;
 }
+
+h1{
+padding-bottom: 0.25em;
+}
+
+p{
+padding-top: 0.25em;
+}
+
 
 img{
     max-width: 100%;
@@ -130,4 +141,47 @@ a{
     text-align: center;
     font-size: 1.2em;
     padding: 0.5em;
+}
+
+.book_show_page{
+    display: flex;
+    margin: 1.1em;
+    width: 100%;
+}
+
+.img_book{
+    width: 350px;
+    height: auto;
+    flex: 0 0;
+    margin-right: 1.1em;
+
+}
+
+.book_info{
+    
+}
+
+.book_index{
+display: flex;
+
+}
+
+.book_card{
+width: 300px;
+margin: 0.5em;
+}
+
+.book_title{
+    font-size: 1.1em;
+    text-transform: capitalize;
+}
+
+.stars{
+    padding: 1em 0;
+}
+
+.book_link{
+    color: blue;
+    text-decoration: underline;
+    margin-bottom: 3em;
 }

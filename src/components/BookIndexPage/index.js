@@ -27,12 +27,18 @@ class BookIndexPage extends Component {
     render() {
         console.log('books', this.state.books)
         return(
-            <main className='page'>
+            <main className='book_index'>
              
                 { this.state.books.map((book) => {
                     return(
                         <Link key={book.id} to={`/categories/${book.category.id}/books/${book.id}`}>
-                        <BookDetails {...book} deletebook={this.deletebook}/>
+                            <div className='book_card'>
+                                <p className='book_title'>{book.title}</p>
+                                <p>By {book.author}</p>
+                                <img src={book.img2_url}/>
+                                
+                            </div>
+                        {/* <BookDetails {...book} deletebook={this.deletebook}/> */}
                         
                         </Link>
                     )
