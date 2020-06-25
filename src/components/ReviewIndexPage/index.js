@@ -57,7 +57,7 @@ class ReviewIndexPage extends Component {
                         <div key={index} to={`/books/${review.book_id}/reviews/${review.id}`}>
 
                             <ReviewDetails {...review} deletereview={this.deletereview}/>
-                            <button onClick={() => this.deleteReview(review.id)}>Delete</button>
+                            <button className="btn" onClick={() => this.deleteReview(review.id)}>Delete</button>
 
                         </div>
                     )

@@ -55,20 +55,24 @@ class CategoryShowPage extends Component {
         
                     />
                     </div>
-                    <button
+
+                   
+                    {/* <button
                     onClick={() => this.deleteCategory(this.state.category.id)}
-                        >Delete </button>
+                        >Delete </button> */}
                         <p></p>
-                    <button onClick={() => this.renderCreateBook(this.state.category.id)}>Add your Book</button>
+                    <button className='books_addBtn'onClick={() => this.renderCreateBook(this.state.category.id)}>Share your Book</button>
 
                         <BookIndexPage categoryId={ id }/>
+                       
                         </>
                         :null
                     
                     
                                    
                 
-                }            
+                }     
+                       
             </main>
         )
 

@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom'
 // import ReviewForm from '../ReviewForm'
 import { Review } from '../../requests'
 import { Book } from '../../requests'
+import '../../style/main.css'
 
 function BookShowPage(props) {
   const [book, setBook] = useState({})
@@ -71,8 +72,8 @@ function BookShowPage(props) {
                 first_name={owner.first_name}
                 last_name={owner.last_name}
               />
-              <button onClick={() => deleteBook(id)}>Delete</button>
-              <button onClick={() => editBook(categoryId, book.id)}>
+              <button className="btn" onClick={() => deleteBook(id)}>Delete</button>
+              <button className="btn" onClick={() => editBook(categoryId, book.id)}>
                 Edit{' '}
               </button>
 

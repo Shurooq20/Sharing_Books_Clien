@@ -3,7 +3,7 @@
 :root{
 --main-color: #7F7CAF;
 --text-color-nav:black;
---main-background: #9FB4C7;
+--main-background: #EEEEFF;
 }
 
 body{
@@ -40,8 +40,7 @@ a{
     display: flex;
     align-items: center;
     background: var(--main-color);
-    padding: 0.2em;
-  
+    padding: 10px 20px;  
 }
 
 .nav_img{
@@ -49,12 +48,33 @@ a{
 
 }
 
-.welcome_img{
+.welcome_heading{
+
+
+    position: absolute;
+    top: 200px;
+    left: 100px;
+    font-size: 50px;
+    color: purple;
+    height: 500px;
+
+    }
+
+    .welcome_img {
+        width: 100%;
+    }
+
+
+
+/* .welcome_img{
+
+    img {
+
     width: 100%;
     height: 95vh;
     background-size: 100%;
     background-image: url('../Iamges/Back_book.jpg');
-}
+} */
 
 .categories_page{
     display: flex;
@@ -150,10 +170,12 @@ a{
 }
 
 .img_book{
-    width: 350px;
-    height: auto;
+    /* width: 350px;
+    height: auto; */
     flex: 0 0;
     margin-right: 1.1em;
+    width: 200px;
+    height: 400px;
 
 }
 
@@ -166,6 +188,7 @@ justify-content: space-between;
 
 .book_index{
 display: flex;
+justify-content: center;
 
 }
 
@@ -189,3 +212,30 @@ margin: 0.5em;
     margin-bottom: 3em;
 }
 
+.img_cards {
+    width: 250px;
+    height: 400px;
+    margin-top: 30px;
+}
+
+.btn {
+    width: 65px;
+    height: 25px;
+    background-color: rgb(218, 197, 197);
+    color: black;
+    border-radius: 2px;
+    margin: 5px;
+}
+
+.category_show {
+    display: flex;
+    justify-content: center;
+}
+
+.books_addBtn {
+    margin-left: 650px;
+    width: 100px;
+    background-color: rgb(218, 197, 197);
+    color: black;
+    border-radius: 2px;
+}

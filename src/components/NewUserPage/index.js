@@ -67,7 +67,7 @@ class NewUserPage extends Component {
             <label htmlFor='passwordConfirmation'>Confirm Password</label>
             <input type='password' name='passwordConfirmation'/>
         
-          <input className='user_button' type='submit' value='Create User'/>
+          <input className='user_button' type='submit' value='Sign Up'/>
         </form>
       </main>
        )

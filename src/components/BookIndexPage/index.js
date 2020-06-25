@@ -35,8 +35,10 @@ class BookIndexPage extends Component {
                             <div className='book_card'>
                                 <p className='book_title'>{book.title}</p>
                                 <p>By {book.author}</p>
-                                <img src={book.img2_url}/>
-                                
+
+                                <div>
+                                <img className="img_cards" src={book.img2_url}/>
+                                </div>
                             </div>
                         {/* <BookDetails {...book} deletebook={this.deletebook}/> */}
                         

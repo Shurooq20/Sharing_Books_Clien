@@ -21,7 +21,7 @@ function NavBar(props) {
         {/* <NavLink to='/categories/new'>New Category</NavLink> */}
         &nbsp; &nbsp;
 
-        {!(currentUser) && (<NavLink to='/users/new'>Create User</NavLink>)}
+        {!(currentUser) && (<NavLink to='/users/new'>Sign Up</NavLink>)}
         {/* <NavLink to='/users/new'>Create User</NavLink> */}
         &nbsp; &nbsp; &nbsp; &nbsp;
         {currentUser ? (

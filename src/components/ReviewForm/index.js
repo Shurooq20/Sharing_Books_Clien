@@ -26,7 +26,7 @@ export default function ReviewForm({ createReview }) {
       </div>
 
       <div>
-        <input type='submit' value='submit' />
+        <input className="btn" type='submit' value='submit' />
       </div>
     </form>
   )
