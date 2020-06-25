@@ -146,7 +146,7 @@ a{
 .book_show_page{
     display: flex;
     margin: 1.1em;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .img_book{
@@ -158,7 +158,10 @@ a{
 }
 
 .book_info{
-    
+width: 95%;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
 }
 
 .book_index{
@@ -185,3 +188,4 @@ margin: 0.5em;
     text-decoration: underline;
     margin-bottom: 3em;
 }
+

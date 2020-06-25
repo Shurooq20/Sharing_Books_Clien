@@ -17,6 +17,7 @@ function BookShowPage(props) {
     Book.one(id).then((book) => {
       setBook(book)
     })
+    console.log(book)
   }, [])
 
   function deleteBook(id) {
@@ -41,8 +42,11 @@ function BookShowPage(props) {
     link,
     description,
     created_at,
-    owner,
+    first_name,
+    last_name,
   } = book
+
+  console.log(book.first_name)
 
   if (currentUser) {
     return (
@@ -50,6 +54,8 @@ function BookShowPage(props) {
         {id ? (
           <>
             <BookDetails
+
+            book={book}
               id={id}
               title={title}
               author={author}
@@ -58,7 +64,8 @@ function BookShowPage(props) {
               link={link}
               description={description}
               created_at={created_at}
-              owner={owner}
+              first_name={first_name}
+              last_name={last_name}
             />
             <button onClick={() => deleteBook(id)}>Delete</button>
             <button onClick={() => editBook(categoryId, book.id)}>Edit </button>
