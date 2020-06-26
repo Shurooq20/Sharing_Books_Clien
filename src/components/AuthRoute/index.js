@@ -10,7 +10,7 @@ function AuthRoute(props) {
     ...restProps
   } = props
 
-  //   console.log(restProps);
+
   return (
     <Route
       {...restProps}

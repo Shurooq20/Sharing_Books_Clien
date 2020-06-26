@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-// import { Redirect } from 'react-router-dom';
 import BookDetails from '../BookDetails'
 import ReviewIndexPage from '../ReviewIndexPage'
 import { Redirect } from 'react-router-dom'
@@ -15,6 +14,7 @@ function BookShowPage(props) {
   const { id, categoryId } = props.match.params
   const currentUser = props.currentUser
 
+
   useEffect(() => {
     Book.one(id).then((book) => {
       setBook(book)
@@ -23,13 +23,11 @@ function BookShowPage(props) {
 
     })
 
-    console.log(book)
   }, [id])
 
   function deleteBook(id) {
     Book.delete(id).then(() => {
-      setBook({})
-      props.history.push('/books')
+      props.history.push(`/categories/${categoryId}`)
     })
   }
 

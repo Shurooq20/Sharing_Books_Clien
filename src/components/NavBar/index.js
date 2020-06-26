@@ -13,20 +13,16 @@ function NavBar(props) {
         {' '}
         <img src={Logo} className='logo'></img>{' '}
       </div>
-      <nav>
+      {/* <nav> */}
         <NavLink to='/'>Home</NavLink>
-        &nbsp; &nbsp;
+       
         <NavLink to='/categories'>Categories</NavLink>
-        &nbsp; &nbsp;
+       
         {/* <NavLink to='/categories/new'>New Category</NavLink> */}
-        &nbsp; &nbsp;
-
-        {!(currentUser) && (<NavLink to='/users/new'>Sign Up</NavLink>)}
-        {/* <NavLink to='/users/new'>Create User</NavLink> */}
-        &nbsp; &nbsp; &nbsp; &nbsp;
+       {!(currentUser) ? (<NavLink to='/users/new'>Sign Up</NavLink>): <p className='user_name'>{currentUser.first_name}</p>}
+       
         {currentUser ? (
           <>
-            <span>{currentUser.first_name}</span>
             <NavLink to='/' onClick={signOut}>
               Sign Out
             </NavLink>
@@ -36,7 +32,7 @@ function NavBar(props) {
             <NavLink to='/sign_in'>Sign In</NavLink>
           </>
         )}
-      </nav>
+      {/* </nav> */}
     </div>
   )
 }

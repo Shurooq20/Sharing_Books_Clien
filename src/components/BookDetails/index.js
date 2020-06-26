@@ -3,9 +3,7 @@ import StarRating from '../StarRating';
 
 
 function BookDetails({ id, title, author, rating, img2_url, link, description, created_at, first_name, last_name, book}) {
-  console.log(created_at, 'created_at')
-  console.log(first_name, 'first_name')
-  console.log(book.owner.first_name, 'book')
+  
   return(
     <div className='book_show_page'>
       <img src={img2_url} alt="" className='img_book'/>

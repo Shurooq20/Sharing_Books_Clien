@@ -59,7 +59,6 @@ class App extends Component {
             <Route path='/' exact component={WelcomePage} />
             <Route path='/categories' exact component={CategoryIndexPage} />
             <Route path='/categories/new' exact component={NewCategoryPage} />
-            {/* <Route path='/categories/:categoryId/books/new'component={NewBookPage}/> */}
 
             <AuthRoute
               isAuthenticated={this.state.currentUser}
@@ -67,23 +66,17 @@ class App extends Component {
               path='/categories/:categoryId/books/new'
             />
 
-            <Route path='/books/new' exact component={NewBookPage} />
-            {/* <Route path='/books/:id/reviews/new' exact component={NewReviewPage} /> */}
             <Route
               path='/categories/:categoryId/books/:id/edit'
               component={EditBookPage}
             />
-            {/* <AuthRoute
-              isAuthenticated={this.state.currentUser}
-              component={BookShowPage}
-              path='/categories/:categoryId/books/:id'
-            /> */}
+
             <Route
               path='/categories/:categoryId/books/:id'
               render={(routeProps) => (
                 <BookShowPage
                   {...routeProps}
-                  currentUser={this.getUser}
+                  currentUser={this.state.currentUser}
                 />
               )}
             />

@@ -42,26 +42,24 @@ class CategoryShowPage extends Component {
     render() {
         const { id, name, img_url} = this.state.category;
         return (
-            <main className='page'>
+            <main className='category_show_page'>
                 {
         
                     id ?
                     <>
                     <div className='category_show'>
-                    <CategoryDetails 
-                        id={id}
-                        name={name}
-                        img_url={img_url}   
-        
-                    />
-                    </div>
-
+                    <h2 className='category_show_header'>{ name }</h2>
+      
+                    <img src={img_url}/>
                    
-                    {/* <button
+
+{/*                    
+                    <button
                     onClick={() => this.deleteCategory(this.state.category.id)}
-                        >Delete </button> */}
-                        <p></p>
+                    >Delete </button>
+                <p></p> */}
                     <button className='books_addBtn'onClick={() => this.renderCreateBook(this.state.category.id)}>Share your Book</button>
+                    </div>
 
                         <BookIndexPage categoryId={ id }/>
                        

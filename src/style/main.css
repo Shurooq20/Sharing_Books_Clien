@@ -41,11 +41,18 @@ a{
     align-items: center;
     background: var(--main-color);
     padding: 10px 20px;  
+    justify-content: space-between;
 }
 
 .nav_img{
-    flex: 1;
+    /* flex: 1; */
+    width: 50%;
 
+}
+
+.user_name{
+text-transform: capitalize;
+font-weight: 900;
 }
 
 .welcome_heading{
@@ -116,9 +123,6 @@ a{
     font-weight: 700;
 }
 
-.category_show{
-
-}
 
 
 .signin_form{
@@ -230,12 +234,27 @@ margin: 0.5em;
 .category_show {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .books_addBtn {
-    margin-left: 650px;
-    width: 100px;
+    margin: 1em auto;
+    /* width: 300px; */
+    font-size: 1.25em;
     background-color: rgb(218, 197, 197);
     color: black;
-    border-radius: 2px;
+    border-radius: 1.2em;
+    padding: 0.25em 1em;
+
+}
+.books_addBtn:hover{
+    background: var(--main-background);
+}
+
+.category_show_header{
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: 900;
+    margin: 0.5em;
 }

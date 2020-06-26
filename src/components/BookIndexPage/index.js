@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import BookDetails from '../BookDetails';
 
 import { Link } from 'react-router-dom';
 import { Book } from '../../requests';
@@ -25,7 +24,6 @@ class BookIndexPage extends Component {
     
 
     render() {
-        console.log('books', this.state.books)
         return(
             <main className='book_index'>
              
@@ -40,7 +38,6 @@ class BookIndexPage extends Component {
                                 <img className="img_cards" src={book.img2_url}/>
                                 </div>
                             </div>
-                        {/* <BookDetails {...book} deletebook={this.deletebook}/> */}
                         
                         </Link>
                     )
