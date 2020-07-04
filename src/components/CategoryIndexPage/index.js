@@ -19,6 +19,7 @@ class CategoryIndexPage extends Component {
             book: {}
         }
         this.deleteCategory = this.deleteCategory.bind(this);
+        this.searchBook = this.searchBook.bind(this);
     }
 
     componentDidMount() {
@@ -46,49 +47,46 @@ class CategoryIndexPage extends Component {
             const title = document.querySelector('#search').value
                 console.log(title)
             Book.searchTitle(title).then((result) => { 
-                // this.setState({ redirect: true})
-                this.setState({ isRedirect: true, book: result})
-                
+                if (result){
+                    this.setState({ isRedirect: true, book: result})
+                }else {
+                    console.log('book dosnt exist')
+                }
                 
             })
             
         }
             render(){
                     if (this.state.isRedirect){
-                    if (this.state.book.id) {
+                    if (this.state.book) {
                         return (<Redirect to={`/categories/${this.state.book.category.id}/books/${this.state.book.id}`}/>)
-                    } else{
-                        console.log('book dosnt exist')
                     }
-                }
-            }
-        
+                } else {
 
-
-    render() {
-        return(
-            <main className='categories_page'>
-
-            <img className='Logo2'   src={Logo2} className='Logo2'></img>{' '}
-
-            <input type='text' id='search' placeholder='enter book title'></input>
-            <button onClick={ this.searchBook }>Search</button>
-             
-                { this.state.categories.map((category) => {
                     return(
-                        <div key={category.id} className='category_card'>
+                        <main className='categories_page'>
 
-                            
-                        <Link  to={`/categories/${category.id}`}>
-                        <CategoryDetails {...category} deleteCategory={this.deleteCategory}/>
+                        <img className='Logo2'   src={Logo2} className='Logo2'></img>{' '}
+
+                        <input type='text' id='search' placeholder='enter book title'></input>
+                        <button onClick={ this.searchBook }>Search</button>
                         
-                        </Link>
-                        </div>
-                    )
-                })}
+                            { this.state.categories.map((category) => {
+                                return(
+                                    <div key={category.id} className='category_card'>
 
-            </main>
-        )
+                                        
+                                    <Link  to={`/categories/${category.id}`}>
+                                    <CategoryDetails {...category} deleteCategory={this.deleteCategory}/>
+                                    
+                                    </Link>
+                                    </div>
+                                )
+                            })}
+
+                        </main>
+                    )
+                }   
             
     }
 }
