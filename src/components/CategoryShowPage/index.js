@@ -50,14 +50,14 @@ class CategoryShowPage extends Component {
                     <div className='category_show'>
                     <h2 className='category_show_header'>{ name }</h2>
       
-                    <img src={img_url}/>
+                    <img className="categoryIMG" src={img_url}/>
                    
 
-{/*                    
+                   
                     <button
                     onClick={() => this.deleteCategory(this.state.category.id)}
                     >Delete </button>
-                <p></p> */}
+                <p></p> 
                     <button className='books_addBtn'onClick={() => this.renderCreateBook(this.state.category.id)}>Share your Book</button>
                     </div>
 

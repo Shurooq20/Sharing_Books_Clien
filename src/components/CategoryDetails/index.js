@@ -6,7 +6,7 @@ function CategoryDetails({ id, name, img_url }) {
     <div>
       <h2 className='category_header'>{ name }</h2>
       
-      <img src={img_url}/>
+      <img className="categoryIMG" src={img_url}/>
 
     </div>
   )

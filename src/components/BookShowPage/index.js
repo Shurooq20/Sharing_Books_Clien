@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom'
 import { Review } from '../../requests'
 import { Book } from '../../requests'
 import '../../style/main.css'
+import CategoryIndexPage from '../CategoryIndexPage'
 
 function BookShowPage(props) {
   const [book, setBook] = useState({})
@@ -57,6 +58,8 @@ function BookShowPage(props) {
         <div className='show'>
           {id ? (
             <>
+            <h1 className='book_club'> Book Club </h1>
+            {/* <CategoryIndexPage/> */}
               <BookDetails
                 book={book}
                 id={id}

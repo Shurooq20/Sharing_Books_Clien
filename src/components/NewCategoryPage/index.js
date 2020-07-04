@@ -11,9 +11,10 @@ class NewCategoryPage extends Component {
   createCategory(params) {
     Category.create(params).then((category) => {
       this.props.history.push(`/categories/${category.id}`);
+      console.log(params)
     })
   }
-
+  
   render() {
     return(
       <main>
@@ -25,3 +26,6 @@ class NewCategoryPage extends Component {
 }
 
 export default NewCategoryPage
+
+
+  

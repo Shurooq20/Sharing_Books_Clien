@@ -20,8 +20,8 @@ export default function ReviewForm({ createReview }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor='body'>What is your review? </label>
+      <div className='review'>
+        <label htmlFor='body'>Join the discussion </label>
         <input onChange={ handlechange } value={body} type='text' name='body' />
       </div>
 

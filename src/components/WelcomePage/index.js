@@ -1,10 +1,11 @@
 import React from "react";
-import Welcome from '../../Iamges/Back_book.jpg';
+import Welcome from '../../Iamges/Full Logo.png';
 
 export const WelcomePage = (props) => (
     <div className='welcome'>
   <img className="welcome_img" src={Welcome} alt="welcome"/>
-      <h1 className="welcome_heading">READING IS FUN </h1>
+      {/* <h1 className="welcome_heading">READER CLUB </h1> */}
+  
     </div>
 
 );

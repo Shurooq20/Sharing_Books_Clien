@@ -45,7 +45,7 @@ export default function BookForm({ createBook }) {
      
 
     
-        <input  className='book_button' type='submit' value='Post your Book' />
+        <input  className='book_button' type='submit' value='Share it now' />
     
     </form>
   )

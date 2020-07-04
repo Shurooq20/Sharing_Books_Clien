@@ -69,6 +69,12 @@ export const Book = {
       credentials: 'include',
     }).then((res) => res.json())
   },
+
+  searchTitle(title) {
+    return fetch(`${BASE_URL}/book/${title}`, {
+      credentials: 'include',
+    }).then((res) => res.json())
+  },
 };
 
 export const Review = {
@@ -138,6 +144,7 @@ export const User = {
     }).then((res) => res.json())
   },
 };
+
 
 export default {
   Category,

@@ -24,7 +24,7 @@ export default function CategoryForm({ createCategory }) {
       </div>
     
       <div>
-        <input type='submit' value='Create Product'/>
+        <input type='submit' value='Create Category'/>
       </div>
     </form>
   )
